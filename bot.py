@@ -1,4 +1,17 @@
 import os
+import subprocess
+import sys
+
+# Устанавливаем системные зависимости для PyQt5/opentele
+try:
+    subprocess.run(
+        ["apt-get", "install", "-y", "-qq",
+         "libglib2.0-0", "libgthread-2.0-0", "libgl1", "libdbus-1-3"],
+        check=False, capture_output=True
+    )
+except Exception:
+    pass
+
 import asyncio
 import zipfile
 import shutil
